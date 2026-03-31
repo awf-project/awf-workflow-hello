@@ -1,0 +1,19 @@
+name: hello
+description: "Simple hello world workflow"
+
+inputs:
+  name:
+    description: "Name to greet"
+    required: false
+    default: "World"
+
+states:
+  greet:
+    type: step
+    command: echo "Hello, {{inputs.name}}!"
+    transitions:
+      success: done
+
+  done:
+    type: terminal
+    status: success

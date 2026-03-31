@@ -1,0 +1,31 @@
+name: greet
+description: "Multi-step greeting workflow with prompt and script"
+
+inputs:
+  language:
+    description: "Greeting language (en, fr, es)"
+    required: false
+    default: "en"
+
+states:
+  select-greeting:
+    type: step
+    prompt_file: "prompts/hello/system-prompt.md"
+    command: |
+      case "{{inputs.language}}" in
+        fr) echo "Bonjour le monde!" ;;
+        es) echo "¡Hola mundo!" ;;
+        *)  echo "Hello World!" ;;
+      esac
+    transitions:
+      success: validate
+
+  validate:
+    type: step
+    script_file: "scripts/validate-output.sh"
+    transitions:
+      success: done
+
+  done:
+    type: terminal
+    status: success
