@@ -10,7 +10,7 @@ inputs:
 states:
   select-greeting:
     type: step
-    prompt_file: "prompts/hello/system-prompt.md"
+    prompt_file: "{{.awf.prompts_dir}}/hello/system-prompt.md"
     command: |
       case "{{inputs.language}}" in
         fr) echo "Bonjour le monde!" ;;
@@ -22,7 +22,7 @@ states:
 
   validate:
     type: step
-    script_file: "scripts/validate-output.sh"
+    script_file: "{{.awf.scripts_dir}}/validate-output.sh"
     transitions:
       success: done
 
