@@ -1,7 +1,7 @@
 .PHONY: pack install install-global clean validate
 
 PACK_NAME := hello
-VERSION := 1.0.0
+VERSION := 1.0.1
 ARCHIVE := awf-workflow-$(PACK_NAME)_$(VERSION).tar.gz
 LOCAL_DIR := .awf/workflow-packs/$(PACK_NAME)
 GLOBAL_DIR := $(HOME)/.local/share/awf/workflow-packs/$(PACK_NAME)

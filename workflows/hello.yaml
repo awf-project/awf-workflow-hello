@@ -2,7 +2,7 @@ name: hello
 description: "Simple hello world workflow"
 
 inputs:
-  name:
+  - name: name
     description: "Name to greet"
     required: false
     default: "World"

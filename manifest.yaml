@@ -1,5 +1,5 @@
 name: hello
-version: "1.0.0"
+version: "1.0.1"
 description: "Hello World workflow pack for testing awf workflow install"
 author: "awf-project"
 license: MIT

@@ -2,7 +2,7 @@ name: greet
 description: "Multi-step greeting workflow with prompt and script"
 
 inputs:
-  language:
+  - name: language
     description: "Greeting language (en, fr, es)"
     required: false
     default: "en"
