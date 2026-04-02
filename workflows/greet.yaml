@@ -8,23 +8,23 @@ inputs:
     default: "en"
 
 states:
+  initial: select-greeting
+
   select-greeting:
     type: step
     prompt_file: "{{.awf.prompts_dir}}/hello/system-prompt.md"
     command: |
-      case "{{inputs.language}}" in
+      case "{{.inputs.language}}" in
         fr) echo "Bonjour le monde!" ;;
         es) echo "¡Hola mundo!" ;;
         *)  echo "Hello World!" ;;
       esac
-    transitions:
-      success: validate
+    on_success: validate
 
   validate:
     type: step
     script_file: "{{.awf.scripts_dir}}/validate-output.sh"
-    transitions:
-      success: done
+    on_success: done
 
   done:
     type: terminal

@@ -8,11 +8,12 @@ inputs:
     default: "World"
 
 states:
+  initial: greet
+
   greet:
     type: step
-    command: echo "Hello, {{inputs.name}}!"
-    transitions:
-      success: done
+    command: echo "Hello, {{.inputs.name}}!"
+    on_success: done
 
   done:
     type: terminal
